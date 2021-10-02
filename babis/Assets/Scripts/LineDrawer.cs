@@ -1,25 +1,45 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LineDrawer : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> connectionLines;
-    [SerializeField] private List<GameObject> pointsToConnect;
-    void Start()
+    public class NeighboorNet : MonoBehaviour
     {
-        
-    }
+        private LineRenderer _connection;
+        public List<GameObject> neighboors;
 
-    void Update()
-    {
-        if (pointsToConnect.Count >= 2)
+        private void Awake()
         {
-            if(pointsToConnect[0] != null && pointsToConnect[1] != null) LineCaster(pointsToConnect[0].transform, pointsToConnect[1].transform);
+            _connection = GetComponent<LineRenderer>();
+        }
+        public void SetupLine(List<GameObject> points)
+        {
+            _connection.positionCount = neighboors.Count;
+            neighboors = points.ToList();
+        }
+        private void Update()
+        {
+            for (int indx = 0; indx < neighboors.Count; indx++)
+            {
+                _connection.SetPosition(indx, neighboors[indx].transform.position);
+            }
         }
     }
+    
+    [SerializeField] private List<NeighboorNet> connectionLines;
+    [SerializeField] private List<GameObject> pointsToConnect;
 
-    void LineCaster(Transform origin, Transform destination)
+    public NeighboorNet CreateNewNet(List<GameObject> points)
     {
-        Debug.DrawLine(origin.position,destination.position, Color.cyan);
+        NeighboorNet newConnection = gameObject.AddComponent<NeighboorNet>();
+        newConnection.neighboors = points.ToList();
+        newConnection.SetupLine(points);
+        return newConnection;
+    }
+
+    private void Start()
+    {
+        connectionLines.Add(CreateNewNet(pointsToConnect.ToList()));
     }
 }
