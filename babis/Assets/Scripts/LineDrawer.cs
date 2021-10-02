@@ -6,8 +6,10 @@ public class LineDrawer : MonoBehaviour
 {
     public class NeighboorNet : MonoBehaviour
     {
-        private LineRenderer _connection;
         public List<GameObject> neighboors;
+        public int netIndex;
+        private LineRenderer _connection;
+        
 
         private void Awake()
         {
@@ -34,6 +36,7 @@ public class LineDrawer : MonoBehaviour
         NeighboorNet newConnection = gameObject.AddComponent<NeighboorNet>();
         newConnection.neighboors = points.ToList();
         newConnection.SetupLine(points);
+        pointsToConnect.Clear();
         return newConnection;
     }
     public void ContinueExistingNet(GameObject point, int netIndex)
