@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MindCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class MindCell : MonoBehaviour
 {
     [SerializeField] private float xAttitude, yAttitude;
     [SerializeField] private float speed;
+    [SerializeField] private Material lineMat;
+    [SerializeField] private LineDrawer lineManager;
+    [SerializeField] private int netCount;
     private Vector2 aSidePos, bSidePos, currPos;
     private int _moveDir = 1;
 
@@ -20,6 +25,7 @@ public class MindCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private void Update()
     {
         MoveBetweenPoints(aSidePos, bSidePos);
+        MouseUp();
     }
 
     void MoveBetweenPoints(Vector2 origin, Vector2 destination)
@@ -31,16 +37,52 @@ public class MindCell : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (Vector2.Distance(transform.position, currPos) <= 0.01f) _moveDir *= -1;
     }
 
-    public void OnBeginDrag(PointerEventData data)
+    private void OnMouseDown()
     {
-        
+        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = lineMat;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
+        lineRenderer.positionCount = 2;
+        lineManager.pointsToConnect.Add(gameObject);
     }
-    public void OnDrag(PointerEventData data)
+
+    private void OnMouseDrag()
     {
-        
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        Vector3 pointerFollowed = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, pointerFollowed);
     }
-    public void OnEndDrag(PointerEventData data)
+    // private void OnMouseUp()
+    // {
+    //     if(!gameObject.GetComponent<LineRenderer>()) return;
+    //     Destroy(gameObject.GetComponent<LineRenderer>());
+    //     lineManager.pointsToConnect.Add(gameObject);    
+    //     List<GameObject> points = lineManager.pointsToConnect.ToList();
+    //     lineManager.connectionLines.Add(lineManager.CreateNewNet(points));
+    //     Debug.Log("chupapi " + points[0].name + " munyanya " + points[1].name);
+    //     //lineManager.pointsToConnect.Clear();
+    // }
+
+    private void MouseUp()
     {
-        
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!gameObject.GetComponent<LineRenderer>()) return;
+            Destroy(gameObject.GetComponent<LineRenderer>());
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider != null)
+            {
+                lineManager.pointsToConnect.Add(hit.transform.gameObject);
+                List<GameObject> points = lineManager.pointsToConnect.ToList();
+                lineManager.connectionLines.Add(lineManager.CreateNewNet(points));
+                Debug.Log("chupapi " + points[0].name + " munyanya " + points[1].name);
+                //lineManager.pointsToConnect.Clear();
+            }
+        }
     }
 }

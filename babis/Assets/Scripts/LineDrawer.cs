@@ -27,9 +27,8 @@ public class LineDrawer : MonoBehaviour
         }
     }
     
-    [SerializeField] private List<NeighboorNet> connectionLines;
-    [SerializeField] private List<GameObject> pointsToConnect;
-
+    public List<NeighboorNet> connectionLines;
+    public List<GameObject> pointsToConnect;
     public NeighboorNet CreateNewNet(List<GameObject> points)
     {
         NeighboorNet newConnection = gameObject.AddComponent<NeighboorNet>();
@@ -37,9 +36,13 @@ public class LineDrawer : MonoBehaviour
         newConnection.SetupLine(points);
         return newConnection;
     }
-
+    public void ContinueExistingNet(GameObject point, int netIndex)
+    {
+        connectionLines[netIndex].neighboors.Add(point);
+        connectionLines[netIndex].SetupLine(connectionLines[netIndex].neighboors);
+    }
     private void Start()
     {
-        connectionLines.Add(CreateNewNet(pointsToConnect.ToList()));
+        // connectionLines.Add(CreateNewNet(pointsToConnect.ToList()));
     }
 }
