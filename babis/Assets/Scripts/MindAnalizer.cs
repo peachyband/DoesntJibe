@@ -15,7 +15,7 @@ public class MindAnalizer : MonoBehaviour
             {
                 actionKey += neighboor.name.ToString();
             });
-            if (actionKey.Equals("-CourseworkTea"))
+            if (actionKey.Equals("-CourseworkTea") || actionKey.Equals("-TeaCoursework"))
             {
                 Debug.Log("sheeesh");
                 //TODO:
@@ -28,6 +28,7 @@ public class MindAnalizer : MonoBehaviour
                 coursePoints += 1;
                 lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
             }
+            //else if(newNet.neighboors.Count > 3) lineDrawer.DeleteConnection(newNet, newNet.netIndex);
         }
     }
 }

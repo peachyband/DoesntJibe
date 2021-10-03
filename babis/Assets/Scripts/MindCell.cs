@@ -46,7 +46,6 @@ public class MindCell : MonoBehaviour
         lineRenderer.endWidth = 0.035f;
         lineRenderer.positionCount = 2;
         lineManager.pointsToConnect.Add(gameObject);
-        compareOne = netCount;
     }
 
     private void OnMouseDrag()
@@ -69,6 +68,8 @@ public class MindCell : MonoBehaviour
             if (hit.collider && hit.transform.gameObject != lineManager.pointsToConnect[0])
             {
                 compareTwo = hit.transform.gameObject.GetComponent<MindCell>().netCount;
+                compareOne = lineManager.pointsToConnect[0].GetComponent<MindCell>().netCount;
+                Debug.Log("1:" + compareOne + " 2:" + compareTwo);
                 int netNum = lineManager.connectionLines.Count;
                 //making new net
                 if (compareTwo == compareOne)

@@ -131,7 +131,7 @@ MonoBehaviour:
   lineMat: {fileID: 2100000, guid: a7823581ac2da884eb3cb61f0f8a4e89, type: 2}
   lineManager: {fileID: 0}
   uiName: {fileID: 8577204726578887311}
-  netCount: 0
+  netCount: -1
 --- !u!212 &8577204726746519854
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -53,19 +53,27 @@ public class LineDrawer : MonoBehaviour
     public void ContinueExistingNet(GameObject point, int netIndex)
     {
         NeighboorNet netConfig = connectionLines[netIndex].GetComponent<NeighboorNet>();
+        point.transform.parent = connectionLines[netIndex].transform;
         netConfig.neighboors.Add(point);
         netConfig.SetupLine(netConfig.neighboors);
     }
 
     public void DeleteExistingNet(NeighboorNet net, int netIndex)
     {
-        for (int i = netIndex; i < connectionLines.Count - 1; i++)
-        {
-            connectionLines[i] = connectionLines[i + 1];
-        }
+        connectionLines.RemoveAt(netIndex);
         net.neighboors.ForEach(neighboor =>
         {
             mindGenerator.objsName.Add(neighboor.name);
+        });
+        Destroy(net.transform.gameObject);
+    }
+
+    public void DeleteConnection(NeighboorNet net, int netIndex)
+    {
+        connectionLines.RemoveAt(netIndex);
+        net.neighboors.ForEach(neighboor =>
+        {
+            neighboor.gameObject.transform.parent = null;
         });
         Destroy(net.transform.gameObject);
     }
