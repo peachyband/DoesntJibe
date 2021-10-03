@@ -1,21 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MindCell : MonoBehaviour
 {
-    [SerializeField] private float xAttitude, yAttitude;
-    [SerializeField] private float speed;
-    [SerializeField] private Material lineMat;
-    [SerializeField] private LineDrawer lineManager;
+    public float xAttitude, yAttitude;
+    public float speed;
+    public Material lineMat;
+    public LineDrawer lineManager;
+    public Text uiName;
     public int netCount;
     private Vector2 aSidePos, bSidePos, currPos;
     private int _moveDir = 1;
-
+    private int compareOne, compareTwo;
+    
     private void Start()
     {
         aSidePos = new Vector2(transform.position.x - xAttitude, transform.position.y - yAttitude);
@@ -41,10 +40,13 @@ public class MindCell : MonoBehaviour
     {
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = lineMat;
-        lineRenderer.startWidth = 0.01f;
-        lineRenderer.endWidth = 0.01f;
+        lineRenderer.startColor = Color.yellow;
+        lineRenderer.endColor = Color.yellow;
+        lineRenderer.startWidth = 0.02f;
+        lineRenderer.endWidth = 0.02f;
         lineRenderer.positionCount = 2;
         lineManager.pointsToConnect.Add(gameObject);
+        compareOne = netCount;
     }
 
     private void OnMouseDrag()
@@ -64,24 +66,28 @@ public class MindCell : MonoBehaviour
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider != null)
+            if (hit.collider)
             {
+                compareTwo = hit.transform.gameObject.GetComponent<MindCell>().netCount;
+                int netNum = lineManager.connectionLines.Count;
                 //making new net
-                if (hit.transform.gameObject.GetComponent<MindCell>().netCount 
-                    == lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount) 
+                if (compareTwo == compareOne)
                 {
                     lineManager.pointsToConnect.Add(hit.transform.gameObject);
                     List<GameObject> points = lineManager.pointsToConnect.ToList();
-                    points[0].gameObject.GetComponent<MindCell>().netCount += 1;
-                    points[1].gameObject.GetComponent<MindCell>().netCount += 1;
-                    lineManager.connectionLines.Add(lineManager.CreateNewNet(points));
+                    points[0].gameObject.GetComponent<MindCell>().netCount = netNum;
+                    points[1].gameObject.GetComponent<MindCell>().netCount = netNum;
+                    lineManager.connectionLines.Add(lineManager.CreateNewNet(points, netNum));
+                    points[0].gameObject.transform.parent = lineManager.connectionLines[netNum].transform;
+                    points[1].gameObject.transform.parent = lineManager.connectionLines[netNum].transform;
                     Debug.Log("chupapi " + points[0].name + " munyanya " + points[1].name);
                 }
                 //continue current net
-                else if (hit.transform.gameObject.GetComponent<MindCell>().netCount 
-                         != lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount)
+                else if (compareTwo != compareOne)
                 {
-                     lineManager.ContinueExistingNet(hit.transform.gameObject, lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount);
+                    netNum = lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount;
+                    lineManager.ContinueExistingNet(hit.transform.gameObject, netNum);
+                    hit.transform.gameObject.GetComponent<MindCell>().netCount = netNum;
                 }
             }
         }
