@@ -8,7 +8,7 @@ public class MindGenerator : MonoBehaviour
 {
     [SerializeField] private List<GameObject> cells;
     [SerializeField] private GameObject cellPrefab;
-    [SerializeField] private List<string> objsName;
+    public List<string> objsName;
     [SerializeField] private LineDrawer lineDrawer;
     [SerializeField] private Transform brain; 
     [SerializeField] private Vector2 brainSize;

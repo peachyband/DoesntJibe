@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MindAnalizer : MonoBehaviour
 {
+    [SerializeField] private LineDrawer lineDrawer;
+    [SerializeField] private int coursePoints;
     private void Update()
     {
         foreach (Transform child in transform)
@@ -13,12 +15,18 @@ public class MindAnalizer : MonoBehaviour
             {
                 actionKey += neighboor.name.ToString();
             });
-            if (actionKey.Equals("-MopTea"))
+            if (actionKey.Equals("-CourseworkTea"))
             {
                 Debug.Log("sheeesh");
                 //TODO:
                 //1.make a move - incomplete
                 //2.delete net - incomplete
+                lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
+            }
+            else if (actionKey.Equals("-CourseworkKeyboard"))
+            {
+                coursePoints += 1;
+                lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
             }
         }
     }

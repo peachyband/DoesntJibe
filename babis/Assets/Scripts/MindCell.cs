@@ -42,8 +42,8 @@ public class MindCell : MonoBehaviour
         lineRenderer.material = lineMat;
         lineRenderer.startColor = Color.yellow;
         lineRenderer.endColor = Color.yellow;
-        lineRenderer.startWidth = 0.02f;
-        lineRenderer.endWidth = 0.02f;
+        lineRenderer.startWidth = 0.025f;
+        lineRenderer.endWidth = 0.035f;
         lineRenderer.positionCount = 2;
         lineManager.pointsToConnect.Add(gameObject);
         compareOne = netCount;
@@ -66,7 +66,7 @@ public class MindCell : MonoBehaviour
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider)
+            if (hit.collider && hit.transform.gameObject != lineManager.pointsToConnect[0])
             {
                 compareTwo = hit.transform.gameObject.GetComponent<MindCell>().netCount;
                 int netNum = lineManager.connectionLines.Count;
@@ -90,6 +90,7 @@ public class MindCell : MonoBehaviour
                     hit.transform.gameObject.GetComponent<MindCell>().netCount = netNum;
                 }
             }
+            else lineManager.pointsToConnect.Clear();
         }
     }
 }

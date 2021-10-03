@@ -16,6 +16,7 @@ public class LineDrawer : MonoBehaviour
             _connection.endColor = Color.gray;
             _connection.startWidth = 0.025f;
             _connection.endWidth = 0.05f;
+            _connection.sortingOrder = 1;
         }
         public void SetupLine(List<GameObject> points)
         {
@@ -30,7 +31,8 @@ public class LineDrawer : MonoBehaviour
             }
         }
     }
-    
+
+    public MindGenerator mindGenerator;
     public List<GameObject> connectionLines;
     public List<GameObject> pointsToConnect;
     public GameObject netContainer;
@@ -54,8 +56,17 @@ public class LineDrawer : MonoBehaviour
         netConfig.neighboors.Add(point);
         netConfig.SetupLine(netConfig.neighboors);
     }
-    private void Start()
+
+    public void DeleteExistingNet(NeighboorNet net, int netIndex)
     {
-        // connectionLines.Add(CreateNewNet(pointsToConnect.ToList()));
+        for (int i = netIndex; i < connectionLines.Count - 1; i++)
+        {
+            connectionLines[i] = connectionLines[i + 1];
+        }
+        net.neighboors.ForEach(neighboor =>
+        {
+            mindGenerator.objsName.Add(neighboor.name);
+        });
+        Destroy(net.transform.gameObject);
     }
 }
