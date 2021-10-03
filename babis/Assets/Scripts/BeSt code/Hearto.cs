@@ -11,7 +11,8 @@ public class Hearto : MonoBehaviour
     [SerializeField] Text heartText;
     private bool allGOOD = false;
     [SerializeField] private float decrMult = 1;
-    [SerializeField] private int incr = 5; 
+    [SerializeField] private int incr = 5;
+    public List<BrainDot> list;
 
     // Start is called before the first frame update
     void Start()
