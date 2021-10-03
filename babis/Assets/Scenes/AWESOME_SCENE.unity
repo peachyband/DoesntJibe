@@ -337,6 +337,22 @@ MonoBehaviour:
   heartText: {fileID: 103829720}
   decrMult: 6
   incr: 3
+  list:
+  - name: asdasf
+    description: dsfdfs
+    type: 0
+    special_connect: dsf
+    sp_func: sdfdfsd
+  - name: 
+    description: 
+    type: 3
+    special_connect: 
+    sp_func: 
+  - name: 
+    description: 
+    type: 2
+    special_connect: 
+    sp_func: 
 --- !u!1 &308429096
 GameObject:
   m_ObjectHideFlags: 0
