@@ -5,6 +5,7 @@ public class MindAnalizer : MonoBehaviour
 {
     [SerializeField] private LineDrawer lineDrawer;
     [SerializeField] private int coursePoints;
+    [SerializeField] private SceneChanger sceneChanger;
     private void Update()
     {
         foreach (Transform child in transform)
@@ -28,21 +29,25 @@ public class MindAnalizer : MonoBehaviour
             else if (actionKey.Equals("-TouchPlay"))
             {
                 Debug.Log("start game");
+                StartCoroutine(sceneChanger.ChangeScene(0, 3));
                 lineDrawer.DeleteConnection(newNet, newNet.netIndex);
             }
             else if (actionKey.Equals("-TouchAutors"))
             {
                 Debug.Log("entry autors menu");
+                sceneChanger.OpenAutorsMenuItem();
                 lineDrawer.DeleteConnection(newNet, newNet.netIndex);
             }
             else if (actionKey.Equals("-TouchHelp"))
             {
-                Debug.Log("entry help menu");   
+                Debug.Log("entry help menu");  
+                sceneChanger.OpenHelpMenuItem();
                 lineDrawer.DeleteConnection(newNet, newNet.netIndex);
             }
             else if (actionKey.Equals("-TouchExit"))
             {
                 Debug.Log("exit the game");
+                Application.Quit();
                 lineDrawer.DeleteConnection(newNet, newNet.netIndex);
             }
             else if (newNet.neighboors.Count > 4)
