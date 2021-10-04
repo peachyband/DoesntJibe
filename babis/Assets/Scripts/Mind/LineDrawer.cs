@@ -93,7 +93,10 @@ public class LineDrawer : MonoBehaviour
         Debug.Log(nets.name);
         foreach (Transform child in nets)
         {
+            Debug.Log(child.name);
+            
             LineDrawer.NeighboorNet newNet = child.GetComponent<LineDrawer.NeighboorNet>();
+            Debug.Log("INDEX: " + newNet);
             DeleteConnection(newNet, newNet.netIndex);
             //DeleteExistingNet(newNet, newNet.netIndex);
         }
