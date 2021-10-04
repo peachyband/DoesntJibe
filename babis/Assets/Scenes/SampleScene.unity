@@ -373,6 +373,10 @@ PrefabInstance:
       propertyPath: heartText
       value: 
       objectReference: {fileID: 420313046}
+    - target: {fileID: 8488906960532950001, guid: 3de1656e1fda3614c9968324a0b7de5c, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 2021579817}
     - target: {fileID: 8488906960532950003, guid: 3de1656e1fda3614c9968324a0b7de5c, type: 3}
       propertyPath: m_RootOrder
       value: 3

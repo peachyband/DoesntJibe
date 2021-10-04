@@ -44,7 +44,7 @@ public class ProgressCalculator : MonoBehaviour
             audioSource.Play();
         }
 
-        if (progressScale >= 20)
+        if (progressScale >= 20 || Input.GetKeyDown(KeyCode.L))
         {
             heart.gameObject.SetActive(true);
         }
