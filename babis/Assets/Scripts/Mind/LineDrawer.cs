@@ -96,8 +96,8 @@ public class LineDrawer : MonoBehaviour
             Debug.Log(child.name);
             
             LineDrawer.NeighboorNet newNet = child.GetComponent<LineDrawer.NeighboorNet>();
-            Debug.Log("INDEX: " + newNet);
-            DeleteConnection(newNet, newNet.netIndex);
+            Debug.Log("INDEX: " + newNet.netIndex);
+            DeleteConnection(newNet, 0);
             //DeleteExistingNet(newNet, newNet.netIndex);
         }
     }
