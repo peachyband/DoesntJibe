@@ -14,6 +14,8 @@ public class ProgressCalculator : MonoBehaviour
     [SerializeField] private SceneChanger sceneChanger;
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Transform goodEnding;
+    [SerializeField] private Transform badEngind;
     [SerializeField] private float cooldown = 1f;
     private void Start()
     {
@@ -51,16 +53,12 @@ public class ProgressCalculator : MonoBehaviour
         if (progressScale >= 100)
         {
             Debug.Log("Loading");
-            sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
-            sceneChanger.bb.text = "YOU WIN!!!";
-
+            goodEnding.gameObject.SetActive(true);        
         }
-        if ( progressScale <= 0)
+        if (progressScale <= 0)
         {
             Debug.Log("Loading");
-            sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
-            sceneChanger.bb.text = "YOU LOSE!!!";
-
+            badEngind.gameObject.SetActive(true);
         }
        
     }

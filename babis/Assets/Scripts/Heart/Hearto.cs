@@ -12,6 +12,7 @@ public class Hearto : MonoBehaviour
     private bool allGOOD = false;
     [SerializeField] private float decrMult = 1;
     [SerializeField] private int incr = 5;
+    [SerializeField] private Transform heartFailure;
 
     [SerializeField] private SceneChanger sceneChanger;
     // Start is called before the first frame update
@@ -30,7 +31,7 @@ public class Hearto : MonoBehaviour
             if (heartStat >= 99 || heartStat <= 1)
             {
                 allGOOD = true;
-                StartCoroutine("TheEnd");
+                TheEnd();
                 return;
             }
             heartStat -= Time.deltaTime * decrMult;
@@ -52,12 +53,9 @@ public class Hearto : MonoBehaviour
         }
     }
 
-    IEnumerator TheEnd() 
+    void TheEnd() 
     {
-        yield return new WaitForSeconds(1.5f);
-        //Destroy(this.gameObject);
-        sceneChanger.bb.text = "Heart Failure:\nYOU LOSE!!!";
-        sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
+        heartFailure.gameObject.SetActive(true);
     }
 
     private void OnMouseDown()

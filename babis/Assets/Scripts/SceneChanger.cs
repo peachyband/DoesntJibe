@@ -14,7 +14,6 @@ public class SceneChanger : MonoBehaviour
         yield return new WaitForSeconds(timeToLoad);
         SceneManager.LoadScene(sceneOrder);
     }
-
     public void OpenHelpMenuItem()
     {
         helpPanel.gameObject.SetActive(true);
@@ -22,5 +21,10 @@ public class SceneChanger : MonoBehaviour
     public void OpenAutorsMenuItem()
     {
         autorsPanel.gameObject.SetActive(true);
+    }
+
+    public void ChangeSceneWithButton(int sceneOrder)
+    {
+        StartCoroutine(ChangeScene(sceneOrder, 3));
     }
 }
