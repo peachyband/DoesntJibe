@@ -27,7 +27,7 @@ public class Hearto : MonoBehaviour
     {
         if (!allGOOD)
         {
-            if (heartStat == 100 || heartStat == 0)
+            if (heartStat >= 100 || heartStat <= 0)
             {
                 allGOOD = true;
                 StartCoroutine("TheEnd");
@@ -55,8 +55,9 @@ public class Hearto : MonoBehaviour
     IEnumerator TheEnd() 
     {
         yield return new WaitForSeconds(1.5f);
-        Destroy(this.gameObject);
-        sceneChanger.ChangeScene(1, 1);
+        //Destroy(this.gameObject);
+        sceneChanger.bb.text = "YOU LOSE!!!";
+        sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
     }
 
     private void OnMouseDown()

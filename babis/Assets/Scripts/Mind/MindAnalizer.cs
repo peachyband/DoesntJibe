@@ -29,7 +29,7 @@ public class MindAnalizer : MonoBehaviour
             else if (actionKey.Equals("-TouchPlay"))
             {
                 Debug.Log("start game");
-                StartCoroutine(sceneChanger.ChangeScene(1, 3));
+                StartCoroutine(sceneChanger.ChangeScene(1, 1));
                 lineDrawer.DeleteConnection(newNet, newNet.netIndex);
             }
             else if (actionKey.Equals("-TouchAutors"))

@@ -23,6 +23,11 @@ public class ProgressCalculator : MonoBehaviour
     private void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0,1));
+
+        }
         if (multipier > 1)
         {
             mulText.text = "x" + multipier.ToString();
@@ -45,12 +50,19 @@ public class ProgressCalculator : MonoBehaviour
         }
         if (progressScale >= 100)
         {
-            sceneChanger.ChangeScene(1, 1);
+            Debug.Log("Loading");
+            sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
+            sceneChanger.bb.text = "YOU WIN!!!";
+
         }
-        else if (progressScale <= 0)
+        if ( progressScale <= 0)
         {
-            sceneChanger.ChangeScene(1, 1);
+            Debug.Log("Loading");
+            sceneChanger.StartCoroutine(sceneChanger.ChangeScene(0, 2));
+            sceneChanger.bb.text = "YOU LOSE!!!";
+
         }
+       
     }
 
     IEnumerator coolDown() 
