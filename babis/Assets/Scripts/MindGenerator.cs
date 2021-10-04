@@ -8,7 +8,7 @@ public class MindGenerator : MonoBehaviour
 {
     [SerializeField] private List<GameObject> cells;
     [SerializeField] private GameObject cellPrefab;
-    public List<string> objsName;
+    public List<BrainDot> objsName;
     [SerializeField] private LineDrawer lineDrawer;
     [SerializeField] private Transform brain; 
     [SerializeField] private Vector2 brainSize;
@@ -18,7 +18,10 @@ public class MindGenerator : MonoBehaviour
         GameObject newCell = Instantiate(cellPrefab, PickAPoint(brain,brainSize), Quaternion.identity);
         MindCell cellControl = newCell.GetComponent<MindCell>();
         int rand = Random.Range(0, objsName.Count);
-        cellControl.uiName.text = newCell.name = objsName[rand];
+        //cellControl.uiName.text = newCell.name = objsName[rand];
+        BrainDot.Copy(objsName[rand], ref cellControl.dot);
+        newCell.name = cellControl.dot.name;
+        cellControl.uiName.text = newCell.name;
         objsName.RemoveAt(rand);
         cellControl.lineManager = lineDrawer;
         cellControl.speed = Random.Range(0.05f, 0.2f);

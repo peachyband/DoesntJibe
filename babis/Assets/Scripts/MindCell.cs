@@ -14,6 +14,7 @@ public class MindCell : MonoBehaviour
     private Vector2 aSidePos, bSidePos, currPos;
     private int _moveDir = 1;
     private int compareOne, compareTwo;
+    public BrainDot dot;
     
     private void Start()
     {
