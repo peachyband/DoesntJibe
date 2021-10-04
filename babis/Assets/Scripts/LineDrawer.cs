@@ -32,7 +32,6 @@ public class LineDrawer : MonoBehaviour
         }
     }
 
-    public MindGenerator mindGenerator;
     public List<GameObject> connectionLines;
     public List<GameObject> pointsToConnect;
     public GameObject netContainer;
@@ -50,12 +49,14 @@ public class LineDrawer : MonoBehaviour
         pointsToConnect.Clear();
         return newConnection;
     }
-    public void ContinueExistingNet(GameObject point, int netIndex)
+    public bool ContinueExistingNet(GameObject point, int netIndex)
     {
+        if (!connectionLines.Contains(connectionLines[netIndex])) return false;
         NeighboorNet netConfig = connectionLines[netIndex].GetComponent<NeighboorNet>();
         point.transform.parent = connectionLines[netIndex].transform;
         netConfig.neighboors.Add(point);
         netConfig.SetupLine(netConfig.neighboors);
+        return true;
     }
 
     public void DeleteExistingNet(NeighboorNet net, int netIndex)
@@ -63,7 +64,7 @@ public class LineDrawer : MonoBehaviour
         connectionLines.RemoveAt(netIndex);
         net.neighboors.ForEach(neighboor =>
         {
-            mindGenerator.objsName.Add(neighboor.name);
+            //add obj names to spawn
         });
         Destroy(net.transform.gameObject);
     }
@@ -71,9 +72,11 @@ public class LineDrawer : MonoBehaviour
     public void DeleteConnection(NeighboorNet net, int netIndex)
     {
         connectionLines.RemoveAt(netIndex);
+        
         net.neighboors.ForEach(neighboor =>
         {
             neighboor.gameObject.transform.parent = null;
+            neighboor.gameObject.GetComponent<MindCell>().netCount = -1;
         });
         Destroy(net.transform.gameObject);
     }

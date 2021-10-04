@@ -69,7 +69,6 @@ public class MindCell : MonoBehaviour
             {
                 compareTwo = hit.transform.gameObject.GetComponent<MindCell>().netCount;
                 compareOne = lineManager.pointsToConnect[0].GetComponent<MindCell>().netCount;
-                Debug.Log("1:" + compareOne + " 2:" + compareTwo);
                 int netNum = lineManager.connectionLines.Count;
                 //making new net
                 if (compareTwo == compareOne)
@@ -81,7 +80,7 @@ public class MindCell : MonoBehaviour
                     lineManager.connectionLines.Add(lineManager.CreateNewNet(points, netNum));
                     points[0].gameObject.transform.parent = lineManager.connectionLines[netNum].transform;
                     points[1].gameObject.transform.parent = lineManager.connectionLines[netNum].transform;
-                    Debug.Log("chupapi " + points[0].name + " munyanya " + points[1].name);
+                    Debug.Log(compareOne + " chupapi " + points[0].name + "; " + compareTwo + " munyanya " + points[1].name);
                 }
                 //continue current net
                 else if (compareTwo != compareOne)
