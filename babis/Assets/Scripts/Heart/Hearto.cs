@@ -13,6 +13,7 @@ public class Hearto : MonoBehaviour
     [SerializeField] private float decrMult = 1;
     [SerializeField] private int incr = 5;
 
+    [SerializeField] private SceneChanger sceneChanger;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +27,10 @@ public class Hearto : MonoBehaviour
     {
         if (!allGOOD)
         {
-            if (heartStat == 100)
+            if (heartStat == 100 || heartStat == 0)
             {
                 allGOOD = true;
-                StartCoroutine("konez");
+                StartCoroutine("TheEnd");
                 return;
             }
             heartStat -= Time.deltaTime * decrMult;
@@ -51,12 +52,11 @@ public class Hearto : MonoBehaviour
         }
     }
 
-    IEnumerator konez() 
+    IEnumerator TheEnd() 
     {
-        if (heartText != null)
-            heartText.text = "WELL DONE!!!";
         yield return new WaitForSeconds(1.5f);
         Destroy(this.gameObject);
+        sceneChanger.ChangeScene(1, 1);
     }
 
     private void OnMouseDown()

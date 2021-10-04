@@ -45,11 +45,11 @@ public class ProgressCalculator : MonoBehaviour
         }
         if (progressScale >= 100)
         {
-            sceneChanger.ChangeScene(3, 0);
+            sceneChanger.ChangeScene(1, 1);
         }
         else if (progressScale <= 0)
         {
-            sceneChanger.ChangeScene(0, 0);
+            sceneChanger.ChangeScene(1, 1);
         }
     }
 
