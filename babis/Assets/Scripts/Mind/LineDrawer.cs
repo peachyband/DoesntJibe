@@ -34,6 +34,7 @@ public class LineDrawer : MonoBehaviour
 
     public List<GameObject> connectionLines;
     public List<GameObject> pointsToConnect;
+    public MindGenerator mindGenerator;
     public GameObject netContainer;
     public Material lineMat;
     public GameObject CreateNewNet(List<GameObject> points, int netIndex)
@@ -65,6 +66,7 @@ public class LineDrawer : MonoBehaviour
         net.neighboors.ForEach(neighboor =>
         {
             //add obj names to spawn
+            //mindGenerator.objsName.Add();
         });
         Destroy(net.transform.gameObject);
     }
