@@ -11,4 +11,13 @@ public class ConnectionsMethods : MonoBehaviour
     {
         thoughths.text = val;
     }
+
+    public void ScoreInc(int val)
+    {
+        char p;
+        if (val < 0) { p = '-'; val = -val; }
+        else p = '+';
+        Debug.Log(p + val);
+        thoughths.text = p + val.ToString();
+    }
 }

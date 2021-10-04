@@ -25,6 +25,13 @@ public class Analizer2 : MonoBehaviour
                     Debug.Log(objs[dominante].name + "+" + objs[(dominante + 1) % 2].name);
                     methods.ShowDescription(objs[(dominante + 1) % 2].description);
                 }
+
+                else if (objs[dominante].type == BrainDot.dotType.special)
+                {
+                    if (objs[(dominante + 1) % 2].scoreInc != 0)
+                        methods.ScoreInc(objs[(dominante + 1) % 2].scoreInc);
+                }
+
                 lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
                 //do smth
             }
