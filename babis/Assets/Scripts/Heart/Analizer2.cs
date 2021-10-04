@@ -32,6 +32,12 @@ public class Analizer2 : MonoBehaviour
                         methods.ScoreInc(objs[(dominante + 1) % 2].scoreInc);
                 }
 
+                else if (objs[dominante].type == BrainDot.dotType.drink)
+                {
+                    
+                        methods.SetMulti(2);
+                }
+
                 lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
                 //do smth
             }

@@ -7,6 +7,7 @@ public class ConnectionsMethods : MonoBehaviour
 {
 
     [SerializeField] private Text thoughths;
+    public int multiplier = 1;
     public void ShowDescription(string val) 
     {
         thoughths.text = val;
@@ -19,5 +20,11 @@ public class ConnectionsMethods : MonoBehaviour
         else p = '+';
         Debug.Log(p + val);
         thoughths.text = p + val.ToString();
+    }
+
+    public void SetMulti(int val) 
+    {
+        multiplier = val;
+        if (val != 1) Debug.Log("Mult = x" + val);
     }
 }
