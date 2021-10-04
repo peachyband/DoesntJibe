@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: lineManager
       value: 
       objectReference: {fileID: 1634731533}
+    - target: {fileID: 8577204727201193187, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79858512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
 --- !u!1001 &619748445
@@ -569,6 +573,10 @@ PrefabInstance:
       propertyPath: lineManager
       value: 
       objectReference: {fileID: 1634731533}
+    - target: {fileID: 8577204727201193187, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79858512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
 --- !u!1 &625425312
@@ -851,6 +859,10 @@ PrefabInstance:
       propertyPath: lineManager
       value: 
       objectReference: {fileID: 1634731533}
+    - target: {fileID: 8577204727201193187, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79858512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
 --- !u!1 &1090194898
@@ -1663,6 +1675,10 @@ PrefabInstance:
       propertyPath: lineManager
       value: 
       objectReference: {fileID: 1634731533}
+    - target: {fileID: 8577204727201193187, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79858512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
 --- !u!1 &1962744864
@@ -1713,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
@@ -1842,6 +1858,10 @@ PrefabInstance:
       propertyPath: lineManager
       value: 
       objectReference: {fileID: 1634731533}
+    - target: {fileID: 8577204727201193187, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79858512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cd64f4192e9e543be7dc91943b437a, type: 3}
 --- !u!1001 &7773536573960973919

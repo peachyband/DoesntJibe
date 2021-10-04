@@ -7,7 +7,7 @@ public class Hearto : MonoBehaviour
 {
 
     [SerializeField] Animator anim;
-    private float heartStat = 0;
+    private float heartStat = 50;
     [SerializeField] Text heartText;
     private bool allGOOD = false;
     [SerializeField] private float decrMult = 1;
