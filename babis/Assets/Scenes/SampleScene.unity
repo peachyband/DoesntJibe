@@ -1583,7 +1583,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cf0e77b3e9c3ce24c8bb66cf0448b43b, type: 3}
   - {fileID: 8300000, guid: 2d30833a38f8e824b865f15e6ad4d0b6, type: 3}
   audioSource: {fileID: 594717628}
-  cooldown: 3
+  cooldown: 6
 --- !u!111 &1321383865
 Animation:
   m_ObjectHideFlags: 0
