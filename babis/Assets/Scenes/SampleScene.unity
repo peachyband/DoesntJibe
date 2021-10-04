@@ -2195,6 +2195,10 @@ PrefabInstance:
       value: LineCaster
       objectReference: {fileID: 0}
     - target: {fileID: 5480778904493202076, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: pcalc
+      value: 
+      objectReference: {fileID: 1321383864}
+    - target: {fileID: 5480778904493202076, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
       propertyPath: thoughths
       value: 
       objectReference: {fileID: 2045548789}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ProgressCalculator : MonoBehaviour
 {
-    [SerializeField] private float progressScale;
+    public float progressScale;
     private RectTransform _rectTransform;
     private void Start()
     {
@@ -11,6 +11,7 @@ public class ProgressCalculator : MonoBehaviour
 
     private void Update()
     {
+        progressScale = Mathf.Clamp(progressScale, 0, 100);
         _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, progressScale * 2);
     }
 }
