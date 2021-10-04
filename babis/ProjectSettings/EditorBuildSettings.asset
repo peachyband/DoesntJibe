@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 48476da7424f8f8488d552544154d256
-  - enabled: 1
-    path: Assets/Scenes/BrainSample.unity
-    guid: fad53d078c8b40b47b701fcab1855113
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
