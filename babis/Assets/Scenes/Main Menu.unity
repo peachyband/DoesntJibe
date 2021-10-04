@@ -1370,9 +1370,9 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "<b>E\u2019Peachyband:\r</b>\n\r\n<b>Artist:</b> \nSoFarAway //Ignatyev
-    Gleb\r\n\r\n<b>Scenario & Gamedesign:</b>\nfavanbowv\nNeskal\r\n\r\n<b>Composer:</b>
-    \nJujo // Vadim Malahanov\r\n\r\n<b>Programmers:</b>\nCATANYAW // Dmitry Svyatash
-    \npeachyhead // Chalov Vasily\n\n"
+    Gleb\r\n\r\n<b>Scenario & Gamedesign:</b>\nfavanbowv\n\r\n<b>Composer:</b> \nJujo
+    // Vadim Malahanov\r\n\r\n<b>Programmers:</b>\nCATANYAW // Dmitry Svyatash \npeachyhead
+    // Chalov Vasily\n\n"
 --- !u!222 &1713585408
 CanvasRenderer:
   m_ObjectHideFlags: 0
