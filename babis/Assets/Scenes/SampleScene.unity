@@ -2214,6 +2214,30 @@ PrefabInstance:
       propertyPath: lineDrawer
       value: 
       objectReference: {fileID: 25652624}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[0].scoreInc
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[3].scoreInc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[6].scoreInc
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[7].scoreInc
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[8].scoreInc
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480778904677088036, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
+      propertyPath: objsName.Array.data[12].scoreInc
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 5480778904677088037, guid: fe25f630d62ac9a489ad25ce442eec72, type: 3}
       propertyPath: m_Name
       value: _Brain
