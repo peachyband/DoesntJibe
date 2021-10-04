@@ -14,7 +14,7 @@ public class Analizer2 : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private void Awake()
     {
-        //_spriteRenderer = currEyes.GetComponent<SpriteRenderer>();
+        _spriteRenderer = currEyes.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class Analizer2 : MonoBehaviour
                 if (objs[dominante].type == BrainDot.dotType.eyes)
                 {
                     Debug.Log(objs[dominante].name + "+" + objs[(dominante + 1) % 2].name);
-                    //_spriteRenderer.sprite = eyesVariation[Random.Range(0, eyesVariation.Count)];
+                    _spriteRenderer.sprite = eyesVariation[Random.Range(0, eyesVariation.Count)];
                     methods.ShowDescription(objs[(dominante + 1) % 2].description);
                 }
 
