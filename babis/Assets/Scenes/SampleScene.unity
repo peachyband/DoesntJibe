@@ -388,7 +388,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1338,6 +1338,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressScale: 0
+  audioClips:
+  - {fileID: 8300000, guid: 803a79904cd1076449cdbf21f6dc4fbc, type: 3}
+  - {fileID: 8300000, guid: 8b094f176513be34a90e00a31872ee3a, type: 3}
+  - {fileID: 8300000, guid: 494ad9725076b5f408570d16b2067b8f, type: 3}
+  - {fileID: 8300000, guid: ec4356ce591941042b2df627b8887f6c, type: 3}
+  - {fileID: 8300000, guid: cf0e77b3e9c3ce24c8bb66cf0448b43b, type: 3}
+  - {fileID: 8300000, guid: 2d30833a38f8e824b865f15e6ad4d0b6, type: 3}
+  audioSource: {fileID: 594717628}
 --- !u!111 &1321383865
 Animation:
   m_ObjectHideFlags: 0
@@ -1938,9 +1946,9 @@ RectTransform:
   m_Father: {fileID: 2099000221}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -208, y: -384}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045548789
@@ -1956,7 +1964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.41356823, g: 0.31555712, b: 0.6037736, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1965,20 +1973,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 30
+    m_FontStyle: 3
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'new textbox
-
-'
+  m_Text: 
 --- !u!222 &2045548790
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class MindGenerator : MonoBehaviour
     [SerializeField] private Transform brain; 
     [SerializeField] private Vector2 brainSize;
     [SerializeField] private float mindSpeed;
+    
     void GenerateOne()
     {
         if (objsName.Count == 0) return;
