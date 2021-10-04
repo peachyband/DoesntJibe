@@ -62,13 +62,16 @@ public class LineDrawer : MonoBehaviour
 
     public void DeleteExistingNet(NeighboorNet net, int netIndex)
     {
+        Debug.Log(netIndex);
         connectionLines.RemoveAt(netIndex);
         net.neighboors.ForEach(neighboor =>
         {
-            //add obj names to spawn
-            //mindGenerator.objsName.Add();
+            mindGenerator.objsName.Add(neighboor.GetComponent<MindCell>().dot);
+            //Debug.Log(neighboor.GetComponent<MindCell>().dot.name);
         });
+        
         Destroy(net.transform.gameObject);
+        StartCoroutine(mindGenerator.Thoughts());
     }
 
     public void DeleteConnection(NeighboorNet net, int netIndex)

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectionLines: []
   pointsToConnect: []
+  mindGenerator: {fileID: 996225029}
   netContainer: {fileID: 1514202005}
   lineMat: {fileID: 2100000, guid: a7823581ac2da884eb3cb61f0f8a4e89, type: 2}
 --- !u!4 &25652625
@@ -397,6 +398,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996225029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5188235801977751329, guid: c1b9ad9fd2ed17e40a1b782fde25df75, type: 3}
+  m_PrefabInstance: {fileID: 5188235803236959488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5ffcbfe523a454aa2c6b8ffe692fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1514202005
 GameObject:
   m_ObjectHideFlags: 0

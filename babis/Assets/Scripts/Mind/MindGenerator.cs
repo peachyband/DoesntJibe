@@ -42,7 +42,7 @@ public class MindGenerator : MonoBehaviour
         return pos;
     }
 
-    IEnumerator Thoughts()
+    public IEnumerator Thoughts()
     {
         while (objsName.Count > 0)
         {
