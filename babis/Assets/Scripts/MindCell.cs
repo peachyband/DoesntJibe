@@ -86,7 +86,10 @@ public class MindCell : MonoBehaviour
                 //continue current net
                 else if (compareTwo != compareOne)
                 {
+                    if (lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount < 0)
+                        lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount = hit.transform.gameObject.GetComponent<MindCell>().netCount;
                     netNum = lineManager.pointsToConnect[0].gameObject.GetComponent<MindCell>().netCount;
+                    Debug.Log(lineManager.pointsToConnect[0].gameObject.name);
                     lineManager.ContinueExistingNet(hit.transform.gameObject, netNum);
                     hit.transform.gameObject.GetComponent<MindCell>().netCount = netNum;
                 }

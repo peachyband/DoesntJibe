@@ -368,7 +368,7 @@ MonoBehaviour:
   lineDrawer: {fileID: 25652624}
   brain: {fileID: 1295909410}
   brainSize: {x: 7, y: 5}
-  mindSpeed: 10
+  mindSpeed: 3
 --- !u!4 &1295909410
 Transform:
   m_ObjectHideFlags: 0
