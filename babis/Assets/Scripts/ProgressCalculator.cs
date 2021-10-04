@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class ProgressCalculator : MonoBehaviour
 {
-    public float progressScale;
+    public float progressScale = 1;
     private RectTransform _rectTransform;
+    [SerializeField] private Transform heart;
+    [SerializeField] private SceneChanger sceneChanger;
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private AudioSource audioSource;
     private void Start()
@@ -20,6 +22,19 @@ public class ProgressCalculator : MonoBehaviour
         {
             audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
             audioSource.Play();
+        }
+
+        if (progressScale >= 20)
+        {
+            heart.gameObject.SetActive(true);
+        }
+        if (progressScale >= 100)
+        {
+            sceneChanger.ChangeScene(3, 0);
+        }
+        else if (progressScale <= 0)
+        {
+            sceneChanger.ChangeScene(0, 0);
         }
     }
 }
