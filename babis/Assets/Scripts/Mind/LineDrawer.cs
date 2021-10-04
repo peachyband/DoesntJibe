@@ -85,4 +85,17 @@ public class LineDrawer : MonoBehaviour
         });
         Destroy(net.transform.gameObject);
     }
+
+    public void DeleteAllConn()
+    {
+        Debug.Log("Delete______");
+        Transform nets = GameObject.FindGameObjectWithTag("LineCaster").transform;
+        Debug.Log(nets.name);
+        foreach (Transform child in nets)
+        {
+            LineDrawer.NeighboorNet newNet = child.GetComponent<LineDrawer.NeighboorNet>();
+            DeleteConnection(newNet, newNet.netIndex);
+            //DeleteExistingNet(newNet, newNet.netIndex);
+        }
+    }
 }

@@ -6,15 +6,16 @@ using Random = UnityEngine.Random;
 
 public class MindGenerator : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> cells;
+    //[SerializeField] private List<GameObject> cells;
     [SerializeField] private GameObject cellPrefab;
     public List<BrainDot> objsName;
     [SerializeField] private LineDrawer lineDrawer;
     [SerializeField] private Transform brain; 
     [SerializeField] private Vector2 brainSize;
     [SerializeField] private float mindSpeed;
-    GameObject GenerateOne()
+    void GenerateOne()
     {
+        if (objsName.Count == 0) return;
         GameObject newCell = Instantiate(cellPrefab, PickAPoint(brain,brainSize), Quaternion.identity);
         MindCell cellControl = newCell.GetComponent<MindCell>();
         int rand = Random.Range(0, objsName.Count);
@@ -26,7 +27,7 @@ public class MindGenerator : MonoBehaviour
         cellControl.speed = Random.Range(0.05f, 0.2f);
         cellControl.xAttitude = Random.Range(-2f, 2f);
         cellControl.yAttitude = Random.Range(-2f, 2f);
-        return newCell;
+        //return newCell;
     }
 
     private void Start()
@@ -47,7 +48,8 @@ public class MindGenerator : MonoBehaviour
         while (objsName.Count > 0)
         {
             yield return new WaitForSeconds(mindSpeed);
-            cells.Add(GenerateOne());
+            //cells.Add(GenerateOne());
+            GenerateOne();
         }
     }
 }
