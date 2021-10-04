@@ -15,10 +15,10 @@ public class SceneChanger : MonoBehaviour
 
     public void OpenHelpMenuItem()
     {
-        autorsPanel.gameObject.SetActive(true);
+        helpPanel.gameObject.SetActive(true);
     }
     public void OpenAutorsMenuItem()
     {
-        helpPanel.gameObject.SetActive(true);
+        autorsPanel.gameObject.SetActive(true);
     }
 }

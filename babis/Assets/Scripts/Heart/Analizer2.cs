@@ -1,12 +1,22 @@
+using System;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Analizer2 : MonoBehaviour
 {
     [SerializeField] private LineDrawer lineDrawer;
     [SerializeField] private int coursePoints;
     [SerializeField] private ConnectionsMethods methods;
+    [SerializeField] private GameObject currEyes;
+    [SerializeField] private List<Sprite> eyesVariation;
+    private SpriteRenderer _spriteRenderer;
+    private void Awake()
+    {
+        _spriteRenderer = currEyes.GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         foreach (Transform child in transform)
@@ -14,15 +24,14 @@ public class Analizer2 : MonoBehaviour
             LineDrawer.NeighboorNet newNet = child.GetComponent<LineDrawer.NeighboorNet>();
             List<BrainDot> objs = new List<BrainDot>();
             newNet.neighboors.ForEach(neighboor => { objs.Add(neighboor.GetComponent<MindCell>().dot); });
-
-
-            int dominante = BrainDot.GetDominante(objs[0].type, objs[1].type);
+             int dominante = BrainDot.GetDominante(objs[0].type, objs[1].type);
 
             if (dominante >= 0)
             {
                 if (objs[dominante].type == BrainDot.dotType.eyes)
                 {
                     Debug.Log(objs[dominante].name + "+" + objs[(dominante + 1) % 2].name);
+                    _spriteRenderer.sprite = eyesVariation[Random.Range(0, eyesVariation.Count)];
                     methods.ShowDescription(objs[(dominante + 1) % 2].description);
                 }
 
