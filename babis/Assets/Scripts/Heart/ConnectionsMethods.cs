@@ -21,12 +21,16 @@ public class ConnectionsMethods : MonoBehaviour
         //else p = '+';
         //Debug.Log(p + val);
         //thoughths.text = p + val.ToString();
+        if (val < 0) val = val / pcalc.multipier;
+        else val = val * pcalc.multipier;
         pcalc.progressScale += val;
     }
 
     public void SetMulti(int val) 
     {
-        multiplier = val;
-        if (val != 1) Debug.Log("Mult = x" + val);
+        //multiplier = val;
+        //if (val != 1) Debug.Log("Mult = x" + val);
+        if (pcalc.multipier == 1)
+            pcalc.multipier = val;
     }
 }

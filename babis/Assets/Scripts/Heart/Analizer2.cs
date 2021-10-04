@@ -44,7 +44,7 @@ public class Analizer2 : MonoBehaviour
                 else if (objs[dominante].type == BrainDot.dotType.drink)
                 {
                     
-                        methods.SetMulti(2);
+                        methods.SetMulti(3);
                 }
 
                 lineDrawer.DeleteExistingNet(newNet, newNet.netIndex);
