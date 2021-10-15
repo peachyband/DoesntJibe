@@ -15,7 +15,6 @@ public class Hearto : MonoBehaviour
     [SerializeField] private Transform heartFailure;
 
     [SerializeField] private SceneChanger sceneChanger;
-    // Start is called before the first frame update
     void Start()
     {
         if (this.GetComponent<Animator>())
@@ -23,7 +22,6 @@ public class Hearto : MonoBehaviour
         anim.speed = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!allGOOD)
@@ -39,15 +37,6 @@ public class Hearto : MonoBehaviour
             heartStat = Mathf.Clamp(heartStat, 0, 100);
             if (heartText != null)
                 heartText.text = "Heart status: " + heartStat.ToString("0");
-
-            
-
-            //if (Input.GetKeyDown(KeyCode.R))
-            ///{
-                //heartStat += 5;
-                
-            //}
-
             if (this.GetComponent<Animator>())
                 anim.speed = heartStat / 100;
         }

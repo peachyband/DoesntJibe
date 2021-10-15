@@ -8,6 +8,7 @@ public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private Transform helpPanel;
     [SerializeField] private Transform autorsPanel;
+    [SerializeField] private Transform brainPanel;
     public Text bb;
     public IEnumerator ChangeScene(int sceneOrder, float timeToLoad)
     {
@@ -23,6 +24,16 @@ public class SceneChanger : MonoBehaviour
         autorsPanel.gameObject.SetActive(true);
     }
 
+    public void OpenBrainPanel()
+    {
+        if(brainPanel) brainPanel.gameObject.SetActive(true);
+    }
+
+    public void CloseBrainPanel()
+    {
+        if(brainPanel) brainPanel.gameObject.SetActive(false);
+    }
+    
     public void ChangeSceneWithButton(int sceneOrder)
     {
         StartCoroutine(ChangeScene(sceneOrder, 3));

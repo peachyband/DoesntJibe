@@ -16,6 +16,7 @@ public class ProgressCalculator : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform goodEnding;
     [SerializeField] private Transform badEngind;
+    [SerializeField] private Transform whatEnding;
     [SerializeField] private float cooldown = 1f;
     private void Start()
     {
@@ -45,7 +46,6 @@ public class ProgressCalculator : MonoBehaviour
             audioSource.clip = audioClips[UnityEngine.Random.Range(0, audioClips.Count)];
             audioSource.Play();
         }
-
         if (progressScale >= 20 || Input.GetKeyDown(KeyCode.L))
         {
             heart.gameObject.SetActive(true);
@@ -59,6 +59,7 @@ public class ProgressCalculator : MonoBehaviour
         {
             Debug.Log("Loading");
             badEngind.gameObject.SetActive(true);
+            heart.gameObject.SetActive(false);
         }
        
     }
@@ -67,6 +68,5 @@ public class ProgressCalculator : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
         multipier = 1;
-
     }
 }

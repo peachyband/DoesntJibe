@@ -25,6 +25,7 @@ public class BrainDot
     }
     public dotType type;
     public int scoreInc = 0;
+    public int multi = 0;
     //public string special_connect;
     //public string sp_func;
     public List<SP> special;
@@ -35,7 +36,7 @@ public class BrainDot
         to.description = from.description;
         to.type = from.type;
         to.scoreInc = from.scoreInc;
-
+        to.multi = from.multi;
         foreach (var sp in from.special)
             to.special.Add(sp);
 

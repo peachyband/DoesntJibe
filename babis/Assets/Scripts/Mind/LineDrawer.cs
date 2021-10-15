@@ -29,6 +29,7 @@ public class LineDrawer : MonoBehaviour
             {
                 _connection.SetPosition(indx, neighboors[indx].transform.position);
             }
+            if (transform.childCount <= 1 || transform.childCount < neighboors.Count) Destroy(gameObject);
         }
     }
 
@@ -94,11 +95,14 @@ public class LineDrawer : MonoBehaviour
         foreach (Transform child in nets)
         {
             Debug.Log(child.name);
-            
-            LineDrawer.NeighboorNet newNet = child.GetComponent<LineDrawer.NeighboorNet>();
+            NeighboorNet newNet = child.GetComponent<NeighboorNet>();
             Debug.Log("INDEX: " + newNet.netIndex);
-            DeleteConnection(newNet, 0);
-            //DeleteExistingNet(newNet, newNet.netIndex);
+            DeleteConnection(newNet, newNet.netIndex);
         }
+    }
+
+    public void CheckIfConfuse()
+    {
+        
     }
 }
